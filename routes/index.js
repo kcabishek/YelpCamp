@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var LocalStrategy = require('passport-local').Strategy;
 
 //root route
 router.get("/", function(req, res){
@@ -15,8 +16,16 @@ router.get("/register", function(req, res){
 
 //handle sign up logic
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, user){
+    var newUser = new User({name: req.body.name, email: req.body.email, username: req.body.username});
+    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+    
+    var errors = req.validationErrors();
+    if(errors){
+        res.render('register', {
+            errors:errors
+        });
+    }else{
+        User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
             return res.redirect("/register");
@@ -26,6 +35,7 @@ router.post("/register", function(req, res){
            res.redirect("/campgrounds"); 
         });
     });
+    }
 });
 
 //show login form
