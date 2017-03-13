@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var Admin = require("../models/admin");
 var LocalStrategy = require('passport-local').Strategy;
 
 //root route
@@ -49,6 +50,11 @@ router.post("/login", passport.authenticate("local",
         successRedirect: "/campgrounds",
         failureRedirect: "/login"
     }), function(req, res){
+});
+
+//handling admin logic
+router.get("/admin", function(req, res) {
+   res.render("admin"); 
 });
 
 // logout route
