@@ -2,6 +2,11 @@
     width: 100%;
 }
 
+#show_img {
+    width: 100%;
+    height: 225px !important;
+}
+
 .thumbnail {
     padding: 0;
 }
