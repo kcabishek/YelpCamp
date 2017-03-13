@@ -2,9 +2,14 @@
     width: 100%;
 }
 
-#show_img {
+#index_img {
     width: 100%;
     height: 225px !important;
+}
+
+#show_img {
+    width: 100%;
+    height: 550px;
 }
 
 .thumbnail {
