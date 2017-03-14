@@ -23,3 +23,13 @@
 #delete-form {
     display: inline;
 }
+
+.fb-like {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.fb-follow {
+    padding-top: 15px;
+    padding-left: 15px;
+}

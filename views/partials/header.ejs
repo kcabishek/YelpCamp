@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <script src="/JS/facebook.js"></script>
     </head>
     <body>
     <nav class="navbar navbar-default" id="back-header">
@@ -13,12 +14,15 @@
                 <a class="navbar-brand" href="/campgrounds">YelpCamp</a>
             </div>
             <div class="collapse navbar-collapse">
+                <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" 
+                    data-size="small" data-show-faces="true" data-share="true">
+                </div>
                 <ul class="nav navbar-nav navbar-right">
                     <% if(!currentUser){ %>
                         <li><a href="/login">Login</a></li>
                         <li><a href="/register">Sign Up</a></li>
                     <% } else { %>
-                        <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                        <li><a href="#">Signed in as <%= currentUser.username %></a></li>
                         <li><a href="/logout">Logout</a></li>
                     <% } %>
                 </ul>
