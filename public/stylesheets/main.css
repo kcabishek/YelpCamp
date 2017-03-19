@@ -2,6 +2,23 @@
     width: 100%;
 }
 
+.navbar-default {
+    width: 100%;
+    height: auto;
+    background-color: #202020;
+    border: none;
+    z-index: 1;
+    position: relative;
+}
+
+.nav.navbar-nav.navbar-right li a {
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
 #index_img {
     width: 100%;
     height: 225px !important;
