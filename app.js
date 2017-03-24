@@ -10,6 +10,7 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     expressValidator = require('express-validator'),
+    client      = require('twilio')(process.env.TWILIO_SID, process.envTWILIO_TOKEN),
     seedDB      = require("./seeds")
     
 //requiring routes
@@ -64,6 +65,11 @@ app.use(function(req, res, next){
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+
+//Test twilio
+app.get("/twilio", function(req,res){
+    
+});
 
 
 app.listen(process.env.PORT, process.env.IP, function(){
