@@ -5,6 +5,10 @@ var User = require("../models/user");
 var Admin = require("../models/admin");
 var LocalStrategy = require('passport-local').Strategy;
 
+var accountSid = "ACf8694b181f7264ec2c80f3b0ed7eca59";
+var authToken = "e30980ffc33e8a2fb09a1b4f6d20f938";
+var client = require('twilio')(accountSid, authToken);
+
 //root route
 router.get("/", function(req, res){
     res.render("landing");
@@ -34,6 +38,13 @@ router.post("/register", function(req, res){
         passport.authenticate("local")(req, res, function(){
            req.flash("success", "Welcome " + user.username);
            res.redirect("/campgrounds"); 
+           client.messages.create({ 
+                to: "+19733429558", 
+                from: "+18622146056", 
+                body: "New user " + user.username + " has registered!!!"
+            }, function(err, message) { 
+                console.log(message); 
+});
         });
     });
     }
