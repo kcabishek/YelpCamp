@@ -21,7 +21,7 @@ var commentRoutes    = require("./routes/comments"),
 // var authToken = "e30980ffc33e8a2fb09a1b4f6d20f938";
 // var client = require('twilio')(accountSid, authToken);
     
-mongoose.connect("mongodb://localhost/yelp_camp_v10");
+mongoose.connect("mongodb://kcabishek:dbpwd@ds153609.mlab.com:53609/yelpcampclone");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
